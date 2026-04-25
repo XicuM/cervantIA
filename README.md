@@ -82,7 +82,7 @@ If you are writing primarily on your desktop using your own AI agent:
 You can ask your OpenClaw agent to install **cervantIA** directly from GitHub. Just send your agent the following prompt:
 
 ```text
-Install the skill "cervantIA" from GitHub: https://github.com/<your-username>/cervantIA.
+Install the skill "cervantIA" from GitHub: https://github.com/XicuM/cervantIA.
 Keep the work scoped to this skill only.
 After install, inspect the skill metadata and help me finish setup.
 Ask before making any broader environment changes.
