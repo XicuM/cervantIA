@@ -1,72 +1,37 @@
-# LLM Book Wiki Schema
+# cervantIA Book Wiki Schema
 
-This document provides the always-on context for managing the Book Wiki. 
-The wiki is an auto-maintained knowledge base that tracks narrative elements.
+Always-on context for managing the Book Wiki.
 
-## Core Rules
-1. **Immutable Sources**: Never modify files in `raw/`. Only read from them.
-2. **Wiki Ownership**: You own the `wiki/` directory. Maintain its consistency aggressively.
-3. **Manuscript Assistance**: When assisting with the `manuscript/`, use the wiki to ensure strict continuity.
-4. **Style Compliance**: Always read `wiki/style_guide.md` before writing or reviewing prose. All output must conform to the configured language, voice, and structure.
+## Rules
+1. **Immutable**: Never modify `raw/`.
+2. **Ownership**: Maintain `wiki/` consistency aggressively.
+3. **Manuscript**: Use the wiki for strict continuity in `manuscript/`.
+4. **Style**: Conform to `wiki/style_guide.md` when writing/reviewing prose.
 
-## Style & Configuration
+## Workflow
+1. `query` — Gather context (timeline, characters, locations).
+2. `write` — Draft in `manuscript/` per style guide and wiki.
+3. `ingest` — Sync wiki with new entities from draft.
+4. `lint` — Validate consistency across wiki/manuscript.
 
-The project's prose style, language, structure, and constraints are stored in `wiki/style_guide.md`. This file is populated by the `setup` skill and can be reconfigured at any time by re-running it. All writing and review agents must consult this file.
+## Entities (`wiki/`)
+### `characters/[name].md`
+**YAML**: `name`, `aliases` (list), `age`, `role` (protagonist|antagonist|supporting|minor), `status` (alive|deceased|missing|unknown), `first_appearance`.
+**Body**: Physical Appearance, Personality & Traits, Voice, Backstory, Arc, Relationships, Appearances.
 
-## Canonical Workflow
+### `locations/[name].md`
+**YAML**: `region`, `control_faction`.
+**Body**: Sensory Details, History & Lore, Key Features, Associated Characters.
 
-The recommended workflow for writing a chapter is:
+### `plot/timeline.md`
+Chronological events, Chapter Mapping, Unresolved Threads.
 
-1. **`query`** — Gather context: review timeline, characters, and locations relevant to the next scene.
-2. **`write`** — Draft the scene/chapter in `manuscript/`, adhering to the style guide and wiki state.
-3. **`ingest`** — Synchronize the wiki with any new events, characters, or locations introduced in the draft.
-4. **`lint`** — Validate consistency across the wiki and manuscript. Fix issues before proceeding.
+### `worldbuilding/[topic].md`
+Overview, Relevance, Key Details.
 
-## Entity Formats
+## Logs
+Append to `wiki/log.md`: `## [YYYY-MM-DD HH:MM] skill_name | Short description`
 
-### Characters (`wiki/characters/[name].md`)
-
-**Required YAML Frontmatter:**
-```yaml
----
-name: ""
-aliases: []
-age: ""
-role: ""          # protagonist | antagonist | supporting | minor
-status: alive     # alive | deceased | missing | unknown
-first_appearance: ""  # chapter/scene reference
----
-```
-
-**Body Sections:**
-- **Physical Appearance**: Distinguishing features, clothing style, mannerisms.
-- **Personality & Traits**: Strengths, flaws, fears, core desires/motivations.
-- **Voice**: Speech patterns, vocabulary, catchphrases.
-- **Backstory**: History prior to chapter 1.
-- **Character Arc**: Starting state vs. end goal.
-- **Relationships**: Links to other character pages.
-- **Appearances**: Links to chapters/scenes.
-
-### Locations (`wiki/locations/[name].md`)
-- **Metadata Frontmatter**: Region, Control/Faction.
-- **Sensory Details**: Sights, sounds, smells, climate.
-- **History & Lore**: Historical significance.
-- **Key Features**: Landmarks, notable buildings.
-- **Associated Characters**: Residents or tied characters.
-
-### Plot & Timeline (`wiki/plot/timeline.md`)
-- **Chronological Sequence**: Bulleted events.
-- **Chapter Mapping**: Event to chapter correlation.
-- **Unresolved Threads**: Open mysteries/plotlines.
-
-### Worldbuilding (`wiki/worldbuilding/[topic].md`)
-- **Overview**: Brief description of the topic (faction, culture, custom, technology).
-- **Relevance**: How it affects the plot or characters.
-- **Key Details**: Rules, norms, or notable facts.
-
-## Log Format
-
-All operations are logged to `wiki/log.md` using the format:
-```
-## [YYYY-MM-DD HH:MM] skill_name | Short description
-```
+## Channel Output
+- **Chat (Telegram/OpenClaw)**: Echo manuscript prose to user (e.g., "✍️ `manuscript/ch-03.md`\n\n[text]"). Do NOT echo wiki updates (confirm only: "📝 Updated `wiki/characters/x.md`"). Keep reports short, use emojis.
+- **Desktop**: Write to files normally.
