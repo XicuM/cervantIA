@@ -17,5 +17,5 @@ metadata: { "openclaw": { "emoji": "⚙️" } }
    - Genre
 2. **Config**: Update `wiki/style_guide.md` templates with answers.
 3. **Schema**: Update `AGENTS.md` if schema/conventions change.
-4. **Log**: Append `## [YYYY-MM-DD HH:MM] setup | <Summary>` to `wiki/log.md`.
+4. **Log**: Append `## [YYYY-MM-DD HH:MM] setup | <Summary>` to `logs/[YYYY-MM].md`.
 5. **Reconfig**: If user changes preferences later, read `style_guide.md` and update only changed fields.

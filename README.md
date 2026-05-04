@@ -54,7 +54,6 @@ graph TD
         VS --> AG[LLM Agent]
         AG --> FS[cervantIA workspace<br>wiki/ manuscript/ raw/]
     end
-    
     subgraph "Mobile"
         U2[Author on Phone] --> TG[Telegram]
         TG --> OC[OpenClaw Gateway]
@@ -71,8 +70,7 @@ If you are writing primarily on your desktop using your own AI agent:
 
 1. **Clone the repository** (or download as a ZIP and extract it):
    ```bash
-   git clone https://github.com/<your-username>/cervantIA.git
-   cd cervantIA
+   git clone https://github.com/XicuM/cervantIA.git
    ```
 2. Open the `cervantIA` folder in your preferred editor.
 3. Your local AI agent will automatically read `AGENTS.md` and the `.agents/skills/` directory to understand the project structure and workflows.
@@ -88,9 +86,7 @@ After install, inspect the skill metadata and help me finish setup.
 Ask before making any broader environment changes.
 ```
 
-The agent will handle cloning the repository, installing the skills into your workspace, and guiding you through the rest of the setup.
-
-For full OpenClaw and Telegram channel setup, see the [OpenClaw Telegram docs](https://docs.openclaw.ai/channels/telegram).
+The agent will handle cloning the repository, installing the skills into your workspace, and guiding you through the rest of the setup. For full OpenClaw and Telegram channel setup, see the [OpenClaw Telegram docs](https://docs.openclaw.ai/channels/telegram).
 
 ---
 

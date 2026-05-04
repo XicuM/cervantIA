@@ -22,4 +22,4 @@ metadata: { "openclaw": { "emoji": "✍️" } }
    ```
 5. **Output (Chat)**: Send full drafted prose back prefixed with filename/metadata.
 6. **Sync Wiki**: If draft adds events/entities, update wiki like `ingest` skill (validate, index, cite).
-7. **Log**: Append `## [YYYY-MM-DD HH:MM] write | Drafted <Desc>` to `wiki/log.md`.
+7. **Log**: Append `## [YYYY-MM-DD HH:MM] write | Drafted <Desc>` to `logs/[YYYY-MM].md`.

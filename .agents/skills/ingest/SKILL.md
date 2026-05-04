@@ -13,6 +13,6 @@ metadata: { "openclaw": { "emoji": "📥" } }
 5. **Locations**: Update/Create in `wiki/locations/`.
 6. **Frontmatter**: Validate YAML schema per `AGENTS.md`.
 7. **Traceability**: Add source file to `Appearances` section.
-8. **Index**: Link new pages in `wiki/index.md`.
+8. **Index**: Run `python .agents/skills/ingest/scripts/generate_index.py` to update `wiki/index.md`.
 9. **Chat**: Summarize changes if in chat channel.
-10. **Log**: Append `## [YYYY-MM-DD HH:MM] ingest | <Short desc>` to `wiki/log.md`.
+10. **Log**: Append `## [YYYY-MM-DD HH:MM] ingest | <Short desc>` to `logs/[YYYY-MM].md`.
